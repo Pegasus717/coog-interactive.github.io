@@ -27,7 +27,6 @@ header img {
     height: 150px;
 }
 
-/* The Connect Banner is desktop-only */
 .social-media-banner {
     display: flex;
     flex-flow: column;
@@ -40,7 +39,6 @@ header img {
     margin-bottom: 5px;
 }
 
-/* These social media logos only appear on desktop */
 .logos {
     display: flex;
     flex-flow: row;
@@ -75,9 +73,6 @@ main {
 }
 main h1 {
     color: var(--cougar-red);
-}
-main p {
-    font-size: larger;
 }
 main ul {
     font-size: larger;
@@ -126,6 +121,24 @@ footer section a {
 
 /* Mobile Layout */
 @media (width <= 800px) {
+    .desktop-only {
+        display: none;
+    }
+
+    nav {
+        flex-flow: column;
+        align-items: stretch;
+        height: auto;
+        margin-bottom: 30px;
+    }
+    nav a {
+        text-align: center;
+        font-size: x-large;
+    }
+    nav .expand {
+        display: none;
+    }
+
     main {
         padding-left: 30px;
         padding-right: 30px;
@@ -133,6 +146,9 @@ footer section a {
     }
     main h1 {
         font-size: 9vw; /* larger h1 scalar for mobile is important for legibility */
+    }
+    main p {
+        font-size: large;
     }
 
     button {
@@ -154,24 +170,6 @@ footer section a {
         height: auto;
     }
 
-    .social-media-banner {
-        display: none; /* Buttons are too small to press on mobile */
-    }
-
-    nav {
-        flex-flow: column;
-        align-items: stretch;
-        height: auto;
-        margin-bottom: 30px;
-    }
-    nav a {
-        text-align: center;
-        font-size: x-large;
-    }
-    nav .expand {
-        display: none;
-    }
-
     footer {
         display: flex;
         flex-flow: row;
@@ -182,20 +180,11 @@ footer section a {
         flex-flow: column;
         text-align: center;
     }
-    footer #navigate {
-        display: none;
-    }
-    footer #credit {
-        display: none;
-    }
-    footer img {
-        display: none;
-    }
 }
 
 /* Desktop Layout */
 @media (width > 800px) {
-    nav #menu-button {
+    .mobile-only {
         display: none;
     }
 
@@ -204,6 +193,9 @@ footer section a {
     }
     main h1 {
         font-size: 50px
+    }
+    main p {
+        font-size: larger;
     }
 
     .row {
@@ -241,7 +233,9 @@ footer section a {
     }
 
     .reverse {
-        flex-flow: row-reverse;
+        flex-flow: row-reverse; /* Displays the image first instead of the text section.
+                                   I know this is a weird way to go about formatting it, 
+                                   but I wanted to always keep the images on top for mobile. */
     }
 
     .left-image {
@@ -264,6 +258,7 @@ footer section a {
         width: 100px;
     }
 
+    /* Makes it to where the button doesn't stretch across the entire screen when centered on Desktop. */
     .center-button {
         width: 50%;
     }
